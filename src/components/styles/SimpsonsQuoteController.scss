@@ -1,0 +1,66 @@
+$spacing: 10px;
+
+@mixin flexSettings {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  margin: 0 $spacing;
+
+  .navContainer {
+    @include flexSettings;
+
+    padding: $spacing 0;
+  }
+  .navQuotesRead {
+    text-align: right;
+  }
+}
+
+.section {
+  @include flexSettings;
+}
+
+.quoteContainer {
+  @include flexSettings;
+
+  border-radius: 20px;
+  margin: $spacing 0;
+  padding: $spacing;
+
+  &.notRead {
+    border: 1px black solid;
+  }
+
+  &.read {
+    border: 1px #fed439ff solid;
+    background-color: #fed439ff;
+  }
+
+  .textAndButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .character {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.characterButtons {
+  .read {
+    margin-right: $spacing;
+  }
+}
+
+Img {
+  height: 250px;
+}

@@ -1,0 +1,16 @@
+html {
+  width: 80%;
+  margin: auto;
+  font-size: 62.5%;
+
+  // Image from https://www.pngwing.com/en/free-png-zfreb
+  background-image: URL("./images/homer.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 400px;
+}
+
+body {
+  max-width: 650px;
+  margin: auto;
+}
