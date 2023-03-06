@@ -1,14 +1,7 @@
-import React, { Component } from "react";
-import "./styles/SimpsonsQuoteController.scss";
+import React from "react";
 
-class Image extends Component {
-  state = {};
-
-  render() {
-    const { image, order, alt } = this.props;
-
-    return <img src={image} alt={alt} style={{ order }} />;
-  }
-}
+const Image = ({ image, order, alt }) => {
+  return <img src={image} alt={alt} style={{ order }} />;
+};
 
 export default Image;

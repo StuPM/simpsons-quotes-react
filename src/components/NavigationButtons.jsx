@@ -1,32 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
 
-class NavigationButtons extends Component {
-  state = {};
+const NavigationButtons = ({
+  sortQuotes,
+  getNewQuotes,
+  searchQuotesByCharacter,
+  readQuotes,
+}) => {
+  return (
+    <nav>
+      <div className="navContainer">
+        <button type="button" onClick={sortQuotes}>
+          Sort by name
+        </button>
 
-  render() {
-    const { sortQuotes, getNewQuotes, searchQuotesByCharacter, readQuotes } =
-      this.props;
-
-    return (
-      <nav>
-        <div className="navContainer">
-          <button type="button" onClick={sortQuotes}>
-            Sort by name
-          </button>
-          <input
-            id="searchInput"
-            type="text"
-            placeholder="Search by name..."
-            onChange={searchQuotesByCharacter}
-          ></input>
-          <button type="button" onClick={getNewQuotes}>
-            Get new Quotes
-          </button>
-        </div>
-        <div className="navQuotesRead">{`Number of read Quotes: ${readQuotes}`}</div>
-      </nav>
-    );
-  }
-}
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by name"
+          onChange={searchQuotesByCharacter}
+        />
+        <button type="button" onClick={getNewQuotes}>
+          Get new Quotes
+        </button>
+      </div>
+      <div className="navQuotesRead">{`Number of read Quotes: ${readQuotes}`}</div>
+    </nav>
+  );
+};
 
 export default NavigationButtons;

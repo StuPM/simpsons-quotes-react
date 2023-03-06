@@ -1,16 +1,11 @@
-import React, { Component } from "react";
-import "./styles/SimpsonsQuoteController.scss";
+import React from "react";
 
-class Quote extends Component {
-  state = {};
-
-  render() {
-    return (
-      <>
-        <div className="quote">{this.props.quote}</div>
-      </>
-    );
-  }
-}
+const Quote = ({ quote }) => {
+  return (
+    <>
+      <div className="quote">{quote}</div>
+    </>
+  );
+};
 
 export default Quote;
