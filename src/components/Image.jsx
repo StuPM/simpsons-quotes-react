@@ -1,6 +1,7 @@
 import React from "react";
 
-const Image = ({ image, order, alt }) => {
+const Image = (props) => {
+  const { image, order, alt } = props;
   return <img src={image} alt={alt} style={{ order }} />;
 };
 
