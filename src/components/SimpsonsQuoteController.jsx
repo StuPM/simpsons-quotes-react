@@ -87,9 +87,10 @@ const SimpsonsQuoteController = () => {
 
     const deleteIndexRead = simpsons[indexToDelete].quoteRead;
 
-    simpsons.splice(indexToDelete, 1);
+    const _simpsons = simpsons;
+    _simpsons.splice(indexToDelete, 1);
 
-    setSimpsons([...simpsons]);
+    setSimpsons([..._simpsons]);
 
     if (deleteIndexRead === "read") {
       setReadQuotes(readQuotes - 1);
@@ -97,7 +98,7 @@ const SimpsonsQuoteController = () => {
   };
 
   const sortQuotes = () => {
-    const simpsonsCopy = simpsons.sort((a, b) => {
+    const _simpsons = simpsons.sort((a, b) => {
       const first = a.character;
       const second = b.character;
 
@@ -110,7 +111,7 @@ const SimpsonsQuoteController = () => {
       return 0;
     });
 
-    setSimpsons([...simpsonsCopy]);
+    setSimpsons([..._simpsons]);
   };
 
   const toggleReadQuote = (key) => {
@@ -118,12 +119,14 @@ const SimpsonsQuoteController = () => {
       (element) => element.character + element.quote === key
     );
 
+    const _simpsons = simpsons;
+
     const newReadValue =
-      simpsons[indexToToggle].quoteRead === "notRead" ? "read" : "notRead";
+      _simpsons[indexToToggle].quoteRead === "notRead" ? "read" : "notRead";
 
-    simpsons[indexToToggle].quoteRead = newReadValue;
+    _simpsons[indexToToggle].quoteRead = newReadValue;
 
-    setSimpsons([...simpsons]);
+    setSimpsons([..._simpsons]);
 
     if (newReadValue === "read") {
       setReadQuotes(readQuotes + 1);
@@ -137,7 +140,9 @@ const SimpsonsQuoteController = () => {
       .getElementById("searchInput")
       .value.toLowerCase();
 
-    for (const element of simpsons) {
+    const _simpsons = simpsons;
+
+    for (const element of _simpsons) {
       if (element.character.toLowerCase().includes(searchValue)) {
         element.visible = true;
       } else {
@@ -145,7 +150,7 @@ const SimpsonsQuoteController = () => {
       }
     }
 
-    setSimpsons([...simpsons]);
+    setSimpsons([..._simpsons]);
   };
 
   if (simpsons) {
