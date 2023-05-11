@@ -162,26 +162,28 @@ const SimpsonsQuoteController = () => {
           searchQuotesByCharacter={searchQuotesByCharacter}
           readQuotes={readQuotes}
         />
-        {simpsons.map(
-          (element) =>
-            element.visible && (
-              <div
-                key={element.quote}
-                className={`quoteContainer ${element.quoteRead}`}
-              >
-                <Character
-                  character={element.character}
-                  quote={element.quote}
-                  image={element.image}
-                  alt={element.character}
-                  order={element.characterDirection === "Left" ? -1 : 1}
-                  deleteQuote={deleteQuote}
-                  toggleReadQuote={toggleReadQuote}
-                  quoteRead={element.quoteRead}
-                />
-              </div>
-            )
-        )}
+        <body>
+          {simpsons.map(
+            (element) =>
+              element.visible && (
+                <div
+                  key={element.quote}
+                  className={`quoteContainer ${element.quoteRead}`}
+                >
+                  <Character
+                    character={element.character}
+                    quote={element.quote}
+                    image={element.image}
+                    alt={element.character}
+                    order={element.characterDirection === "Left" ? -1 : 1}
+                    deleteQuote={deleteQuote}
+                    toggleReadQuote={toggleReadQuote}
+                    quoteRead={element.quoteRead}
+                  />
+                </div>
+              )
+          )}
+        </body>
       </>
     );
   } else {
