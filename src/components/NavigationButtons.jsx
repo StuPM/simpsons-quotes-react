@@ -1,9 +1,11 @@
 import React from "react";
 
-const NavigationButtons = (props) => {
-  const { sortQuotes, getNewQuotes, searchQuotesByCharacter, readQuotes } =
-    props;
-
+const NavigationButtons = ({
+  sortQuotes,
+  getNewQuotes,
+  searchQuotesByCharacter,
+  readQuotes,
+}) => {
   return (
     <nav>
       <div className="navContainer">
