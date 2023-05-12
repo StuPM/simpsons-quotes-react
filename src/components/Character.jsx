@@ -3,17 +3,15 @@ import Quote from "./Quote";
 import CharacterButtons from "./CharacterButtons";
 import Image from "./Image";
 
-const Character = (props) => {
-  const {
-    character,
-    quote,
-    order,
-    image,
-    deleteQuote,
-    toggleReadQuote,
-    editQuotes,
-  } = props;
-
+const Character = ({
+  character,
+  quote,
+  order,
+  image,
+  deleteQuote,
+  toggleReadQuote,
+  editQuotes,
+}) => {
   return (
     <>
       <div className="textAndButtonContainer">
@@ -27,6 +25,7 @@ const Character = (props) => {
           character={character}
           quote={quote}
           editQuotes={editQuotes}
+          order={order}
         />
       </div>
       <Image image={image} alt={character} order={order} />

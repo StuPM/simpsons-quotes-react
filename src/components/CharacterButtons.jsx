@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 
-const CharacterButtons = (props) => {
-  const { deleteQuote, character, quote, toggleReadQuote, editQuotes } = props;
+const CharacterButtons = ({
+  deleteQuote,
+  character,
+  quote,
+  toggleReadQuote,
+  editQuotes,
+  order,
+}) => {
   const key = character + quote;
 
   const [isEditable, setEditable] = useState(false);
@@ -17,7 +23,7 @@ const CharacterButtons = (props) => {
   };
 
   return (
-    <div className="characterButtons">
+    <div className={`characterButtons ${order === -1 ? "drawRight" : ""}`}>
       <div className="controls">
         <button
           className="read"

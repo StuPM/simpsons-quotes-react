@@ -58,9 +58,10 @@ nav {
 }
 
 .characterButtons {
-  .controls {
+  &.drawRight {
     display: flex;
-    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
   }
   .editInput {
     width: 147px;
