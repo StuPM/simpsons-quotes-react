@@ -1,8 +1,13 @@
+@media (min-width: 375px) {
+  html {
+    width: 80%;
+  }
+}
+
 html {
-  width: 80%;
   margin: auto;
   font-size: 62.5%;
-
+  width: 100%;
   background-image: URL("./images/homer.png");
   background-repeat: no-repeat;
   background-position: 0 0;

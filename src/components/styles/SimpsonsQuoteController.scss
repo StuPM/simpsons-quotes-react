@@ -1,10 +1,4 @@
 $spacing: 10px;
-
-// html
-// width 100%
-// quoteContainer textAndButtonContainer
-// min-wdith 0
-
 @mixin flexSettings {
   display: flex;
   justify-content: space-between;
@@ -48,7 +42,7 @@ nav {
     flex-direction: column;
     justify-content: space-between;
 
-    min-width: 222px;
+    min-width: 0;
 
     .character {
       font-size: 1.8rem;
@@ -77,14 +71,10 @@ img {
   height: 250px;
 }
 
-@media (max-width: 375px) {
-  html {
-    width: 100%;
-  }
-
+@media (min-width: 375px) {
   .quoteContainer {
     .textAndButtonContainer {
-      min-width: 0;
+      min-width: 222px;
     }
   }
 }
