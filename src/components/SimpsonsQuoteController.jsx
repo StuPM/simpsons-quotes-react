@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import Character from "./Character";
 import NavigationButtons from "./NavigationButtons";
-
 import "./styles/SimpsonsQuoteController.scss";
+import { findIndexUtil } from "../utils";
 
 const SimpsonsQuoteController = () => {
   const [readQuotes, setReadQuotes] = useState(0);
@@ -85,23 +84,6 @@ const SimpsonsQuoteController = () => {
     setReadQuotes(0);
   }
 
-  const deleteQuote = (key) => {
-    const indexToDelete = simpsons.findIndex(
-      (element) => element.character + element.quote === key
-    );
-
-    const deleteIndexRead = simpsons[indexToDelete].quoteRead;
-
-    const _simpsons = simpsons;
-    _simpsons.splice(indexToDelete, 1);
-
-    setSimpsons([..._simpsons]);
-
-    if (deleteIndexRead === "read") {
-      setReadQuotes(readQuotes - 1);
-    }
-  };
-
   const sortQuotes = () => {
     const _simpsons = simpsons.sort((a, b) => {
       const first = a.character;
@@ -119,17 +101,30 @@ const SimpsonsQuoteController = () => {
     setSimpsons([..._simpsons]);
   };
 
+  const deleteQuote = (key) => {
+    const indexOfKey = findIndexUtil(key, simpsons);
+
+    const deleteIndexRead = simpsons[indexOfKey].quoteRead;
+
+    const _simpsons = simpsons;
+    _simpsons.splice(indexOfKey, 1);
+
+    setSimpsons([..._simpsons]);
+
+    if (deleteIndexRead === "read") {
+      setReadQuotes(readQuotes - 1);
+    }
+  };
+
   const toggleReadQuote = (key) => {
-    const indexToToggle = simpsons.findIndex(
-      (element) => element.character + element.quote === key
-    );
+    const indexOfKey = findIndexUtil(key, simpsons);
 
     const _simpsons = simpsons;
 
     const newReadValue =
-      _simpsons[indexToToggle].quoteRead === "notRead" ? "read" : "notRead";
+      _simpsons[indexOfKey].quoteRead === "notRead" ? "read" : "notRead";
 
-    _simpsons[indexToToggle].quoteRead = newReadValue;
+    _simpsons[indexOfKey].quoteRead = newReadValue;
 
     setSimpsons([..._simpsons]);
 
@@ -141,13 +136,11 @@ const SimpsonsQuoteController = () => {
   };
 
   const editQuotes = (key, newQuote) => {
-    const indexToToggle = simpsons.findIndex(
-      (element) => element.character + element.quote === key
-    );
+    const indexOfKey = findIndexUtil(key, simpsons);
 
     const _simpsons = simpsons;
 
-    _simpsons[indexToToggle].quote = newQuote;
+    _simpsons[indexOfKey].quote = newQuote;
 
     setSimpsons([..._simpsons]);
   };
