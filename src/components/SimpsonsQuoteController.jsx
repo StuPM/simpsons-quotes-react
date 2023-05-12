@@ -135,6 +135,18 @@ const SimpsonsQuoteController = () => {
     }
   };
 
+  const editQuotes = (key, newQuote) => {
+    const indexToToggle = simpsons.findIndex(
+      (element) => element.character + element.quote === key
+    );
+
+    const _simpsons = simpsons;
+
+    _simpsons[indexToToggle].quote = newQuote;
+
+    setSimpsons([..._simpsons]);
+  };
+
   const searchQuotesByCharacter = () => {
     const searchValue = document
       .getElementById("searchInput")
@@ -178,6 +190,7 @@ const SimpsonsQuoteController = () => {
                     order={element.characterDirection === "Left" ? -1 : 1}
                     deleteQuote={deleteQuote}
                     toggleReadQuote={toggleReadQuote}
+                    editQuotes={editQuotes}
                     quoteRead={element.quoteRead}
                   />
                 </div>

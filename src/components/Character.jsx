@@ -4,8 +4,15 @@ import CharacterButtons from "./CharacterButtons";
 import Image from "./Image";
 
 const Character = (props) => {
-  const { character, quote, order, image, deleteQuote, toggleReadQuote } =
-    props;
+  const {
+    character,
+    quote,
+    order,
+    image,
+    deleteQuote,
+    toggleReadQuote,
+    editQuotes,
+  } = props;
 
   return (
     <>
@@ -19,6 +26,7 @@ const Character = (props) => {
           deleteQuote={deleteQuote}
           character={character}
           quote={quote}
+          editQuotes={editQuotes}
         />
       </div>
       <Image image={image} alt={character} order={order} />

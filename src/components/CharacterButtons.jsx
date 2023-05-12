@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 
 const CharacterButtons = (props) => {
-  const { deleteQuote, character, quote, toggleReadQuote } = props;
+  const { deleteQuote, character, quote, toggleReadQuote, editQuotes } = props;
   const key = character + quote;
 
   const [isEditable, setEditable] = useState(false);
+  const [newInputQuote, setNewInputQuote] = useState("");
 
   const setEdit = () => {
     setEditable(!isEditable);
   };
 
-  const saveQuoteEdit = (e) => {
+  const saveQuoteEdit = () => {
     setEdit();
-    console.log(e.target.value);
+    editQuotes(key, newInputQuote);
   };
 
   return (
@@ -40,7 +41,7 @@ const CharacterButtons = (props) => {
           <input
             type="text"
             placeholder="Edit"
-            onChange={(e) => console.log(e.target.value)}
+            onChange={(e) => setNewInputQuote(e.target.value)}
           ></input>
         </div>
       ) : (
