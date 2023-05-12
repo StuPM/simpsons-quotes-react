@@ -4,7 +4,7 @@ View and read famous Simpsons quotes pulled from [TheSimpsonsQuoteAPI](https://t
 
 ## Live link
 
-[Simpsons Quotes!](www.google.com). **TBC**
+[Simpsons Quotes!](https://simpsons-quotes-spm.netlify.app). **TBC**
 
 ## Features
 

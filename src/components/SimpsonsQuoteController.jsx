@@ -63,7 +63,7 @@ const SimpsonsQuoteController = () => {
     callSimpsonsAPI();
   }, []);
 
-  async function callSimpsonsAPI() {
+  const callSimpsonsAPI = async () => {
     const count = 5;
 
     const results = await axios.get(
@@ -82,7 +82,7 @@ const SimpsonsQuoteController = () => {
       setSimpsons(fallbackData);
     }
     setReadQuotes(0);
-  }
+  };
 
   const sortQuotes = () => {
     const _simpsons = simpsons.sort((a, b) => {
