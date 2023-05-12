@@ -162,7 +162,7 @@ const SimpsonsQuoteController = () => {
           searchQuotesByCharacter={searchQuotesByCharacter}
           readQuotes={readQuotes}
         />
-        <body>
+        <main>
           {simpsons.map(
             (element) =>
               element.visible && (
@@ -183,7 +183,7 @@ const SimpsonsQuoteController = () => {
                 </div>
               )
           )}
-        </body>
+        </main>
       </>
     );
   } else {

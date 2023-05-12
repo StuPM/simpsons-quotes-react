@@ -17,6 +17,7 @@ When the webpage loads, an initial 5 quotes will appear. These 5 quotes can then
 Then via the menu bar at the top of the page, you can:
 
 - Sort the quotes by the character name. **TBC**
+  - Further options?
 - Filter the quotes by the character name.
 - Get 5 new random quotes. **TBC**
 
