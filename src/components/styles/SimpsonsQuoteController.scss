@@ -43,6 +43,8 @@ nav {
     flex-direction: column;
     justify-content: space-between;
 
+    min-width: 222px;
+
     .character {
       font-size: 1.8rem;
       font-weight: bold;
@@ -56,9 +58,12 @@ nav {
 }
 
 .characterButtons {
-  .button {
-    //not the last button
-    margin-right: $spacing;
+  .controls {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .editInput {
+    width: 147px;
   }
 }
 

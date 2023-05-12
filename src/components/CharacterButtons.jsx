@@ -18,36 +18,37 @@ const CharacterButtons = (props) => {
 
   return (
     <div className="characterButtons">
-      <button
-        className="read button"
-        type="button"
-        onClick={() => toggleReadQuote(key)}
-      >
-        Toggle read
-      </button>
-      <button
-        className="delete button"
-        type="button"
-        onClick={() => deleteQuote(key)}
-      >
-        Delete
-      </button>
-
-      {isEditable ? (
+      <div className="controls">
+        <button
+          className="read"
+          type="button"
+          onClick={() => toggleReadQuote(key)}
+        >
+          Toggle Read
+        </button>
+        <button
+          className="delete"
+          type="button"
+          onClick={() => deleteQuote(key)}
+        >
+          Delete
+        </button>
+        <button onClick={setEdit} className="edit" type="button">
+          {isEditable ? "Cancel" : `\xa0\xa0Edit\xa0\xa0`}
+        </button>
+      </div>
+      {isEditable && (
         <div className="editableContainer">
-          <button onClick={saveQuoteEdit} className="button" type="button">
+          <button onClick={saveQuoteEdit} className="save" type="button">
             Save
           </button>
           <input
             type="text"
+            className="editInput"
             placeholder="Edit"
             onChange={(e) => setNewInputQuote(e.target.value)}
           ></input>
         </div>
-      ) : (
-        <button onClick={setEdit} className="button" type="button">
-          Edit Quote
-        </button>
       )}
     </div>
   );
