@@ -7,7 +7,7 @@ import { findIndexUtil } from "../utils";
 
 const SimpsonsQuoteController = () => {
   const [readQuotes, setReadQuotes] = useState(0);
-  const [simpsons, setSimpsons] = useState([]);
+  const [simpsons, setSimpsons] = useState(false);
 
   const fallbackData = [
     {
@@ -82,6 +82,7 @@ const SimpsonsQuoteController = () => {
       setSimpsons(fallbackData);
     }
     setReadQuotes(0);
+    clearSearchValue();
   };
 
   const sortQuotes = () => {
@@ -150,6 +151,8 @@ const SimpsonsQuoteController = () => {
       .getElementById("searchInput")
       .value.toLowerCase();
 
+    console.log(searchValue);
+
     const _simpsons = simpsons;
 
     for (const element of _simpsons) {
@@ -163,14 +166,30 @@ const SimpsonsQuoteController = () => {
     setSimpsons([..._simpsons]);
   };
 
+  const resetSearchBar = () => {
+    clearSearchValue();
+    searchQuotesByCharacter();
+  };
+
+  const getNewQuotes = () => {
+    clearSearchValue();
+    setSimpsons(false);
+    callSimpsonsAPI();
+  };
+
+  const clearSearchValue = () => {
+    document.getElementById("searchForm").reset();
+  };
+
   if (simpsons) {
     return (
       <>
         <NavigationButtons
           sortQuotes={sortQuotes}
-          getNewQuotes={callSimpsonsAPI}
+          getNewQuotes={getNewQuotes}
           searchQuotesByCharacter={searchQuotesByCharacter}
           readQuotes={readQuotes}
+          resetSearchBar={resetSearchBar}
         />
         <main>
           {simpsons.map(
@@ -200,7 +219,18 @@ const SimpsonsQuoteController = () => {
   } else {
     return (
       <>
-        <h2>Waiting for data...</h2>
+        <NavigationButtons
+          sortQuotes={sortQuotes}
+          getNewQuotes={getNewQuotes}
+          searchQuotesByCharacter={searchQuotesByCharacter}
+          readQuotes={readQuotes}
+          resetSearchBar={resetSearchBar}
+        />
+        <main>
+          <div className="waitingContainer">
+            <h2>Waiting for quotes...</h2>
+          </div>
+        </main>
       </>
     );
   }

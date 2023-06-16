@@ -5,6 +5,7 @@ const NavigationButtons = ({
   getNewQuotes,
   searchQuotesByCharacter,
   readQuotes,
+  resetSearchBar,
 }) => {
   return (
     <nav>
@@ -13,12 +14,18 @@ const NavigationButtons = ({
           Sort by name
         </button>
 
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by name"
-          onChange={searchQuotesByCharacter}
-        />
+        <form id="searchForm">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by name"
+            onChange={searchQuotesByCharacter}
+          />
+          <button type="reset" onClick={resetSearchBar}>
+            X
+          </button>
+        </form>
+
         <button type="button" onClick={getNewQuotes}>
           Get new Quotes
         </button>

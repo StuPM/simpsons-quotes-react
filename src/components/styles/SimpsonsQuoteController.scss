@@ -60,6 +60,11 @@ nav {
   }
 }
 
+.waitingContainer {
+  @include flexSettings;
+  justify-content: center;
+}
+
 .characterButtons {
   &.drawRight {
     display: flex;

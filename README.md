@@ -29,6 +29,6 @@ Then via the menu bar at the top of the page, you can:
   - Pulling quotes from the TheSimpsonsQuoteAPI as linked above and by using AXIOS.
 - HTML5, CSS3 and JavaScript.
 
-## Authors
+## Author
 
 Built and created by me, Stuart Paul McGee in the context of the 2023 full-time Software Engineering bootcamp run by [The Jump Digital School](https://www.thejump.tech/).
