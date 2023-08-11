@@ -1,7 +1,7 @@
 import React from "react";
 import Quote from "./Quote";
 import CharacterButtons from "./CharacterButtons";
-import Image from "./Image";
+import Image from "./Image.tsx";
 
 const Character = ({
   character,

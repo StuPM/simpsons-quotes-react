@@ -1,6 +1,10 @@
 import React from "react";
 
-const Quote = ({ quote }) => {
+type Props = {
+  quote: string;
+};
+
+const Quote = ({ quote }: Props): JSX.Element => {
   return (
     <>
       <div className="quote">{quote}</div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/Header.scss";
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <header>
       <h1>Simpsons quotes!</h1>
